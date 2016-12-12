@@ -1,0 +1,8 @@
+{
+    "name": "jumper/user",
+    "autoload": {
+        "psr-4": {
+            "Jumper\\User\\": "src/"
+        }
+    }
+}

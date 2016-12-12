@@ -1,0 +1,8 @@
+{
+    "name": "jumper/dashboard",
+    "autoload": {
+        "psr-4": {
+            "Jumper\\Dashboard\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "jumper/response",
+    "autoload": {
+        "psr-4": {
+            "Jumper\\Response\\": "src/"
+        }
+    }
+}

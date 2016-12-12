@@ -1,0 +1,1 @@
+<total-childrens number_of_childern="{{ $childrens }}"></total-childrens>
