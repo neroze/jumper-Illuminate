@@ -143,9 +143,6 @@ Jumper.open_all_panel = function(){
 Jumper.show_loading_button = function(target){
   var self = this;
   $(target).button('loading');
-  // setTimeout(function() {
-  //     $(target).button('loading');
-  // },1210); 
 }
 
 Jumper.reset_loading_button = function(target){
@@ -159,6 +156,13 @@ Jumper.btn_loading = function(target){
 
 Jumper.btn_reset = function(target){
   this.reset_loading_button(target)
+}
+
+Jumper.base_url = function(_path){
+  return "/"+window.app_prefix+"/"+_path;
+}
+window.base_url = (_path) =>{ // proxy function
+  Jumper.base_url(_path); 
 }
 
 

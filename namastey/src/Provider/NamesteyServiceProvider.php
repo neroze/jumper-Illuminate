@@ -1,13 +1,13 @@
 <?php
+
 namespace Jumper\Namstey\Provider;
+
 use Illuminate\Support\ServiceProvider;
 
 class NamesteyServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -21,8 +21,6 @@ class NamesteyServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {

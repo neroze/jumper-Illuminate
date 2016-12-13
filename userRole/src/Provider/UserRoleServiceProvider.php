@@ -1,13 +1,13 @@
 <?php
+
 namespace Jumper\UserRole\Provider;
+
 use Illuminate\Support\ServiceProvider;
 
 class UserRoleServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -16,18 +16,16 @@ class UserRoleServiceProvider extends ServiceProvider
         // publishing views
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/userRole'),
-           
+
         ]);
-         $this->publishes([
+        $this->publishes([
             __DIR__.'/../resources/assets/js/app/user_role' => resource_path('assets/js/app/user_role_raw'),
-            
-        ],'js');
+
+        ], 'js');
     }
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {

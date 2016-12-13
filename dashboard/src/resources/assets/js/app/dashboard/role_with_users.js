@@ -14,15 +14,12 @@ J.Vue.component('my-component', {
   		var data = [];
   		var label = [];
   		_.each(_roleData, function(item) {
-
   				var a = {};
   				a.value =  	item.users.length;
   				a.name 	= 	item.display_name;
   				label.push(item.display_name);
   				data.push(a);
-
   		});
-
   		return {label:label,data:data};
   	}
   }

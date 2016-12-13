@@ -10,9 +10,8 @@
     <title>{{ config('app.name', 'FDC APP') }}</title>
       <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
+        window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token() ]) ?>;
+        window.app_prefix = '{{ env("APP_PREFIX","admin")}}';
     </script>
 
     <!-- Bootstrap core CSS -->

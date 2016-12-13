@@ -17,12 +17,9 @@ J.Vue.component('enrollments-widget', {
   		var data = [];
   		var label = [];
   		_.each(_data, function(item) {
-
           label.push(month_names_short[item.month - 1]);
   				data.push(item.user_count);
-  				
   		});
-
   		return {label:label,data:data};
   	}
   }

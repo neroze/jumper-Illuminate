@@ -1,13 +1,13 @@
 <?php
+
 namespace Jumper\Core\Provider;
+
 use Illuminate\Support\ServiceProvider;
 
 class CoreServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -20,14 +20,12 @@ class CoreServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/assets/js/app/jumper' => resource_path('assets/js/app/jumper_raw'),
-            
-        ],'js');
+
+        ], 'js');
     }
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {
