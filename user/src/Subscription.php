@@ -14,6 +14,6 @@ class Subscription extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('Jumper\User\User', 'user_id');
     }
 }

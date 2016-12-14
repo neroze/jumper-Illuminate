@@ -20,8 +20,16 @@ class CoreServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/assets/js/app/jumper' => resource_path('assets/js/app/jumper_raw'),
+            __DIR__.'/../resources/assets/js/app/config' => resource_path('assets/js/app/config_raw'),
+            __DIR__.'/../resources/assets/js/lib' => resource_path('assets/js/lib'),
+            __DIR__.'/../resources/assets/js/app.js' => resource_path('assets/js/app_raw.js'),
 
-        ], 'js');
+        ], 'core_app_js');
+
+        $this->publishes([
+            __DIR__.'/../resources/public' => public_path('/'),
+
+        ], 'core_public_assets');
     }
 
     /**

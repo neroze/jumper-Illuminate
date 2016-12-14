@@ -11,15 +11,15 @@ use Jumper\Core\Helpers\Jumper;
 use Jumper\User\User;
 use Jumper\User\Subscription;
 use Illuminate\Support\Facades\Mail;
-//use App\Mail\ThankyouMessage;
-//use App\Educator;
+use Jumper\Mail\ThankyouMessage;
+
 use Laravel\Cashier\Cashier;
 
 class UserController extends Controller
 {
     public function __construct($value = '')
     {
-        $this->middleware(['access_only_if_rool_as:root_admin|admin|company|compay_admin']);
+        //$this->middleware(['access_only_if_rool_as:root_admin|admin|company|compay_admin']);
     }
 
     public function index()
@@ -55,7 +55,6 @@ class UserController extends Controller
         if ($user) {
             $user->delete();
         }
-
         return JResponse::data('deleted');
     }
 
@@ -70,7 +69,6 @@ class UserController extends Controller
             }
             $user->save();
         }
-
         return JResponse::data($user);
     }
 
@@ -145,12 +143,10 @@ class UserController extends Controller
 
                // email to user
                 $message = 'Thank you so much for subscribing with our system. ';
-                //TODO: Develop Mail Man
-                ##Mail::to($user->email)->send(new ThankyouMessage());
+                Mail::to($user->email)->send(new ThankyouMessage());
                 // email to admin
                 $message = 'We have new Subscription from '.$user->name.' ( '.$user->email.' ) ';
-                //TODO: Develop Mail Man
-               ## Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
+                Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
 
                 return redirect(env('APP_PREFIX', 'jumper').'/user/account')->withMessage('You are succesfully subscribed.');
             }
@@ -169,10 +165,10 @@ class UserController extends Controller
             $user->subscription('main')->cancel();
             // Email to user
             $message = 'Your Subscription has been cancelled, Thank you for you using our system. ';
-            //Mail::to($user->email)->send(new ThankyouMessage());
+            Mail::to($user->email)->send(new ThankyouMessage());
             // Email to admin
             $message = 'Subscription cancelled by '.$user->name.' ( '.$user->email.' ) ';
-           // Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
+            Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
             return redirect('admin/user/account')->withMessage('Your subscription is cancelled.');
             exit;
         }
@@ -189,12 +185,10 @@ class UserController extends Controller
             $user->subscription('main')->resume();
             // Email to user
             $message = 'Your Subscription has been resumed, Thank you for you using our system. ';
-            //TODO: Develop Mail Man
-            ##Mail::to($user->email)->send(new ThankyouMessage());
+            Mail::to($user->email)->send(new ThankyouMessage());
             // Email to admin
             $message = 'Subscription Resumed been resumed by '.$user->name.' ( '.$user->email.' ) ';
-            //TODO: Develop Mail Man
-            //Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
+            Mail::to(config('app.admin_main', 'neerooze@gmail.com'))->send(new ThankyouMessage($message));
 
             return redirect(env('APP_PREFIX', 'jumper').'/user/account')->withMessage('Your subscription is resumed succesfully.');
             exit;
@@ -224,7 +218,6 @@ class UserController extends Controller
             $user->save();
             return JResponse::data('Profile Image Deleted.');
         }
-
         return JResponse::error('Error while deleting profile Image.');
     }
 }

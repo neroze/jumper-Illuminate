@@ -16,7 +16,6 @@ class MailServiceProvider extends ServiceProvider
         // publishing views
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/mail'),
-
         ]);
     }
 

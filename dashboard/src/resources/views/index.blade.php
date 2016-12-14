@@ -5,17 +5,19 @@
 	<div class="row">
 
 		@if($user->hasRole('root_admin') )
-			@include('dash::total_app_users')
-	  	@include('dash::total_balance')
-	  	@include('dash::fireNotifications')
+			@include('jumperDash::total_app_users')
+	  	@include('jumperDash::total_balance')
+	  @else
+	  	<h5>You need to be Root Admin</h5>
 		@endif
 	</div>
-	<div class="row" id="dashboard">
-	@if($user->hasRole('root_admin') ||  $user->hasRole('admin') || $user->hasRole('company') || $user->hasRole('company_admin'))
-		@include('dash::admin_level_charts')
+	
+	<div id="dashboard">
+	@if($user->hasRole('root_admin') ||  $user->hasRole('admin') )
+		@include('jumperDash::admin_level_charts')
 	@endif
 	</div>
-
+   <div style="clear: both;"></div>
 </div>
 @stop
 

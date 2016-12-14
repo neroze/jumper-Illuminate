@@ -12,16 +12,15 @@ class DashboardServiceProvider extends ServiceProvider
     public function boot()
     {
         // pointing views
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'dash');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'jumperDash');
         // publishing views
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/dash'),
-
         ]);
         $this->publishes([
             __DIR__.'/../resources/assets/js/app/dashboard' => resource_path('assets/js/app/dashboard_raw'),
 
-        ], 'js');
+        ], 'dashboard_js');
     }
 
     /**

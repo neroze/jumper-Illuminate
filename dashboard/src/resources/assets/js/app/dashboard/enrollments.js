@@ -2,7 +2,7 @@ var J = require('../jumper/lib.js');
 var Chart = require('../jumper/chart.js');
 
 // register
-J.Vue.component('enrollments-widget', {
+var enrollment = J.Vue.component('enrollments-widget', {
 	props: ['graphData'],
   name:"enrollments-comp",
   template: '<div class="col-md-12 chart-widget"  id="echart_pie3"></div>',
@@ -24,7 +24,5 @@ J.Vue.component('enrollments-widget', {
   	}
   }
 })
-// create a root instance
-new J.Vue({
-  el: '#dashboard'
-})
+
+module.exports = enrollment;

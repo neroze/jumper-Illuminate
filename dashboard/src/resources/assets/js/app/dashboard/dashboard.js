@@ -1,5 +1,7 @@
 var J = require('../jumper/lib.js');
 var Opt = require('../config/option.js');
+var userStatus 		= require('./users_status.js');
+var MyComponents 	= require('./role_with_users.js');
 
 var Dash = {};
 
@@ -21,7 +23,7 @@ Dash.fire_notifications = function(e){
 }
 
 new J.Vue({
-	el: '#dashboard',
+	el: '#dashboard-panel',
 	data: {
 		childs:[]
 	},

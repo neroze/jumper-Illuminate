@@ -2,7 +2,7 @@
 <html lang="en">
 @include('jumperCore::layouts.partials.head')
 
-<body style="opacity: 0" class="nav-md">
+<body id="app" style="opacity: 0" class="nav-md">
 
     <div class="container body">
 

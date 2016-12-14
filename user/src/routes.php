@@ -1,6 +1,7 @@
 <?php
 
-Route::group(['prefix' => env('APP_PREFIX', 'jumper'), 'middleware' => ['web', 'auth', 'impersonate', 'isActive']], function () {
+// Route::group(['prefix' => env('APP_PREFIX', 'jumper'), 'middleware' => ['web', 'auth', 'impersonate', 'isActive']], function () {
+Route::group(['prefix' => env('APP_PREFIX', 'jumper'), 'middleware' => ['web', 'auth']], function () {
      // Protected route
     Route::get('manage-user', 'Jumper\User\Controllers\UserController@index');
     Route::post('add-new-user', 'Jumper\User\Controllers\UserController@addNewUser');

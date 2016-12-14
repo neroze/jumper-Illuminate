@@ -2,7 +2,7 @@ var J = require('../jumper/lib.js');
 var Chart = require('../jumper/chart.js');
 
 // register
-J.Vue.component('users-status', {
+var userStatus =  J.Vue.component('users-status', {
 	props: ['graphData','name'],
   template:'<div class="col-md-12 chart-widget" id="echart_pie4"></div>',
 	ready:function() {
@@ -30,6 +30,8 @@ J.Vue.component('users-status', {
   }
 })
 // create a root instance
-new J.Vue({
-  el: '#user-status'
-})
+// new J.Vue({
+//   el: '#user-status'
+// });
+
+module.exports = userStatus;

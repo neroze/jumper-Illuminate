@@ -37,7 +37,7 @@ class DashboardController extends Controller
             }
         }
 
-        return view('dash::index', compact('role', 'users_status', 'user', 'total_balance', 'total_paid_amt'));
+        return view('jumperDash::index', compact('role', 'users_status', 'user', 'total_balance', 'total_paid_amt'));
     }
 
     public static function getCurrentStripeTotalBalace()

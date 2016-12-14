@@ -1,0 +1,8 @@
+{
+    "name": "jumper/impersonate",
+    "autoload": {
+        "psr-4": {
+            "Jumper\\Impersonate\\": "src/"
+        }
+    }
+}
