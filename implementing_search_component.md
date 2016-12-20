@@ -5,9 +5,20 @@
 </pre>
 
 # Extending search Factor functions from search.js
-
-# extending search functions
 <pre>
+var User = {}
+User.add_new_user = function(){
+	...
+}
+
+User.edit_user = function(){
+	...
+}
+
+User.delete_user = function(){
+	...
+}
+
 User = Object.assign(User,Search); // replace User with ur Module name
 
 User.setSearchParam = function(_obj){
