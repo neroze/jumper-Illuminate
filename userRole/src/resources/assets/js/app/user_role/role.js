@@ -93,7 +93,7 @@ var Role = {
 		var self = this;
 		var reports = [];
 		_.forEach(this.roles, function(value, key) {
-		 		reports.push({name:value.display_name,total:value.users.length, color:J.random_color('green')});
+		 		reports.push({name:value.display_name,total:value.users.length});
 		});
 
 		this.$set('reports', reports);

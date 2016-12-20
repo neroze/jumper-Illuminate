@@ -1,5 +1,6 @@
 var J = require('../jumper/lib.js');
-
+var Search = require('../search/search.js');
+var SearchPanel = require('../search/search_panel.js');
 
 var User = {};
 
@@ -83,7 +84,7 @@ User.get_all_users = function(){
 	var self = this;
 	var url = '';
 	if(location.hash == ""){
-		 url = base_url('admin/all-users')
+		 url = base_url('all-users')
 	}else{
 		url = base_url('all-users/'+location.hash.replace("#",""));
 	}
@@ -179,6 +180,22 @@ User.edit_details = function(user){
 	}
 }
 
+
+// extending search functions
+User = Object.assign(User,Search);
+
+User.setSearchParam = function(_obj){
+    this.dateRange.from =  _obj.from;
+    this.dateRange.to =  _obj.to;
+    this.filterBy  =  _obj.filterBy;
+    
+    if(_obj.filterBy == ""){
+        this.filterBy = "";
+    }else{
+        this.seach_now();
+    }
+}
+
 new J.Vue({
 	el: '#manage-user',
 	data: {
@@ -194,7 +211,10 @@ new J.Vue({
 			status_text: null,
 		},
 		cache_user:null,
-		modal:$("#saveUserModal")
+		modal:$("#saveUserModal"),
+		filterBy: "",
+    dateRange: {},
+    serach_date_range: null
 	},
 	ready: function() {
 		this.get_all_users();
@@ -202,5 +222,9 @@ new J.Vue({
 	init: function() {
 
 	},
-	methods: User
+	methods: User,
+ 	filters: User.filers_actions(),
+  components:{
+      'search-panel':SearchPanel
+  }
 });

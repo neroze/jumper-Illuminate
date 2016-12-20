@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['access_only_if_rool_as:root_admin']);
+      //  $this->middleware(['access_only_if_rool_as:root_admin']);
     }
 
     /**
@@ -35,7 +35,6 @@ class RoleController extends Controller
     public function manage()
     {
         $roles = $this->role_Summery();
-
         return view('jumperRole::manage', compact('roles'));
     }
 

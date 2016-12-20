@@ -9,26 +9,23 @@
 					<h2>Manage System Users <small>Users List</small></h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li>
-						
 	 						<a href="#" class="btn btn-sm" data-toggle="modal" data-target="#saveUserModal">
 								<i class="fa fa-plus" aria-hidden="true"></i> Add New User
 							</a>
 						</li>
-						
-						
 					</ul>
 					<div class="clearfix"></div>
 				</div>
-				
 				<div class="x_content">
+					<search-panel :set_search_param="setSearchParam"></search-panel>
 					<table id="users" class="table table-striped responsive-utilities jambo_table">
 						<thead>
 							<tr class="headings">
 								<th>
 									<!-- <input type="checkbox" class="tableflat"> -->
 								</th>
+								<th>ID </th>
 								<th>Full Name </th>
-					
 								<th>Email </th>
 								<th>Role </th>
 								<th>Create Date </th>
@@ -39,11 +36,12 @@
 					</thead>
 					<tbody>
 					
-						<tr class="even pointer"  v-for="user in users | byRole" >
+						<tr class="even pointer"  v-for="user in users | byRole | filterByDate" >
 							<td width="20px" class="a-center "  >
 								<!-- <input type="checkbox" value="@{{role.id}}" class="tableflat"> -->
 								<i class="fa  fa-meh-o"></i>
 							</td>
+							<td class=" "> @{{ user.id }} </td>
 							<td class=" "> @{{ user.name }} </td>
 							<td class=" "> @{{ user.email }} </td>
 							<td class=" "> 

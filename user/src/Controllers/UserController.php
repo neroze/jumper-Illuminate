@@ -19,7 +19,7 @@ class UserController extends Controller
 {
     public function __construct($value = '')
     {
-        //$this->middleware(['access_only_if_rool_as:root_admin|admin|company|compay_admin']);
+        $this->middleware(['access_only_if_rool_as:root_admin|admin']);
     }
 
     public function index()

@@ -4,21 +4,12 @@ var vueResource = require('vue-resource');
     Vue.use(vueResource);
 var _ = require('lodash');
 var Base = require('./Base.js');
-var randomcolor = require('randomcolor');
+
 var Jumper = {};
 Jumper = Object.assign(Object.create(Base), Jumper);
 
 Jumper.log = function(_msg ){
 	console.log(_msg);
-}
-Jumper.random_color = function(_luminosity, _hue) {
-	var luminosity 	= luminosity || "dark";
-	var hue 				= _hue || "blue";
-  
-	return randomcolor({
-									   luminosity: luminosity,
-   										hue: hue
-										});
 }
 
 Jumper.random_color_dump = function(){
@@ -26,7 +17,6 @@ Jumper.random_color_dump = function(){
 }
 
 Jumper.delete_file_from_server = function(_filename){
-
   $.ajax({
     url: '/admin/delete-file',
     type: 'GET',
@@ -162,7 +152,7 @@ Jumper.base_url = function(_path){
   return "/"+window.app_prefix+"/"+_path;
 }
 window.base_url = (_path) =>{ // proxy function
-  Jumper.base_url(_path); 
+  return Jumper.base_url(_path); 
 }
 
 

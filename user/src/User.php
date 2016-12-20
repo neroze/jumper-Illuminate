@@ -142,12 +142,12 @@ class User extends Authenticatable
             $user = new self();
             $user->password = Hash::make($data->password);
             $user->email = $data->email;
-            $user->user_id = Auth::user()->id;
-            $user->status = 1;
+           // $user->user_id = Auth::user()->id;
+            //$user->status = 1;
         }
 
         $user->name = $data->name;
-        $user->contact = $data->contact;
+        //$user->contact = $data->contact;
 
         $user->save();
 

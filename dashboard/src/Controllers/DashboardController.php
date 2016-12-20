@@ -36,7 +36,6 @@ class DashboardController extends Controller
                 $total_balance = 0;
             }
         }
-
         return view('jumperDash::index', compact('role', 'users_status', 'user', 'total_balance', 'total_paid_amt'));
     }
 
@@ -96,7 +95,6 @@ class DashboardController extends Controller
         if ($exitCode) {
             JResponse::data(['stat' => true, 'data' => $exitCode]);
         }
-
         JResponse::error(['stat' => false, 'data' => $exitCode]);
     }
 
