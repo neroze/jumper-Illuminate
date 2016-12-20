@@ -57,7 +57,7 @@ new J.Vue({
 </pre>
 
 # Implementing component in template
-<search-panel :set_search_param="setSearchParam"></search-panel>
+&#60;search-panel :set_search_param="setSearchParam" &#62;  &#60;/search-panel&#62;
 ## implementing search filter in looop 
 v-for="user in users | filterByDate"
 
