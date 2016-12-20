@@ -50,20 +50,12 @@ new J.Vue({
 v-for="user in users | filterByDate"
 
 ## Example
-<table id="users" class="table table-striped responsive-utilities jambo_table">
-			<thead>
-				<tr class="headings">
-					<th>ID </th>
-					<th>Full Name </th>
-					<th>Email </th>
-				</th>
-			</tr>
-		</thead>
+<pre>
 		<tbody>
 			<tr class="even pointer"  v-for="user in users | filterByDate" >
 				<td class=" "> @{{ user.id }} </td>
 				<td class=" "> @{{ user.name }} </td>
 				<td class=" "> @{{ user.email }} </td>
-				
+			</tr>
 		</tbody>
-</table>
+</pre>
