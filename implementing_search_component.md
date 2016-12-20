@@ -51,11 +51,7 @@ v-for="user in users | filterByDate"
 
 ## Example
 <pre>
-		<tbody>
-			<tr class="even pointer"  v-for="user in users | filterByDate" >
-				<td class=" "> @{{ user.id }} </td>
-				<td class=" "> @{{ user.name }} </td>
-				<td class=" "> @{{ user.email }} </td>
-			</tr>
-		</tbody>
+
+			&#60; tr class="even pointer"  v-for="user in users | filterByDate" &#62;
+				
 </pre>
