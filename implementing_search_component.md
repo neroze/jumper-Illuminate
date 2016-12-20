@@ -6,6 +6,7 @@
 # Extending search Factor functions from search.js
 
 # extending search functions
+<pre>
 User = Object.assign(User,Search); // replace User with ur Module name
 
 User.setSearchParam = function(_obj){
@@ -18,8 +19,10 @@ User.setSearchParam = function(_obj){
         this.seach_now();
     }
 }
+</pre>
 
 # adding search props example
+<pre>
 new J.Vue({
 	el: '#manage-user',
 	data: {
@@ -39,6 +42,7 @@ new J.Vue({
       'search-panel':SearchPanel
   }
 });
+</pre>
 
 # Implementing component in template
 <search-panel :set_search_param="setSearchParam"></search-panel>
