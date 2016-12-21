@@ -1,7 +1,7 @@
 # Import search.js and search_panel.js
 <pre>
 	var Search = require('../search/search.js');
- 	var Search = require('../search/search.js');
+ 	var SearchPanel = require('../search/search_panel.js');
 </pre>
 
 # Extending search Factor functions from search.js
