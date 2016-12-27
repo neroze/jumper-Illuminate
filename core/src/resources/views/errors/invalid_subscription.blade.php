@@ -18,7 +18,7 @@
                         </p>
                         <div class="mid_center">
                          
-                             <a class="btn btn-success"  href="{{ url('/admin/user/account') }}">Add Subscription</a>
+                             <a class="btn btn-success"  href="{{ url(env('APP_PREFIX', 'jumper').'/user/account') }}">Add Subscription</a>
                              <a class="btn btn-info"  href="{{ url('/logout') }}"> <i class="fa fa-sign-out"></i> Logout</a>
                         </div>
                     </div>

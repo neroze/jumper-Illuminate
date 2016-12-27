@@ -21,7 +21,7 @@
        
             <div class="form-group">
               <label for="password" class="form-label">Password</label>
-               <input type="password" class="form-control" name="password" id-"password" v-model="user.password" value="" >
+               <input type="password" class="form-control" name="password" id="password" v-model="user.password" value="" >
             </div>
 
             <div class="form-group">
@@ -32,7 +32,7 @@
             <div class="form-group">
             	<label for="role" class="form-label">Role</label> <br>
             		<select v-model="user.roles" multiple id="user_controller"  class="form-control">
-								  <option id="@{{ role.name }}" value="@{{ role.id }}"  v-for="(index, role)  in role_meta">@{{ role.display_name}}</option>
+								  <option :id="role.name" :value="role.id"  v-for="(index, role)  in role_meta">@{{ role.display_name}}</option>
 								</select>
             		
             </div>

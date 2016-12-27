@@ -1,4 +1,4 @@
-@extends('layouts.dash')
+@extends('jumperCore::layouts.dash')
 @section('content')
 <div id="user-account">
 	
@@ -79,7 +79,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- @include('site.user.create') -->
+	
 </div>
 @stop
 

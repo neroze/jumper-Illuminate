@@ -19,5 +19,6 @@ Route::group(['prefix' => env('APP_PREFIX', 'jumper'), 'middleware' => ['web', '
 
     Route::post('save_profile_pic', 'Jumper\User\Controllers\UserController@saveProfilePic');
     Route::post('delete_profile_pic', 'Jumper\User\Controllers\UserController@deleteProfilePic');
+    Route::get('logout', 'Auth\LoginController@logout');
 
 });

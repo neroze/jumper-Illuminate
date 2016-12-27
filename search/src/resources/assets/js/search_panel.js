@@ -13,7 +13,6 @@ var SearchPanel = {
         }
         ,methods:{
           seach_now:function(){
-            console.log(this.dateRange);
             this.set_search_param(this.dateRange);
           }
           ,set_date_range_picker:function() {
@@ -33,7 +32,6 @@ var SearchPanel = {
               });
           },
           filterBychange:function(){
-            console.log(this.filterBy);
             this.set_search_param({from:null,to:null,filterBy:this.filterBy});
           },
           reset_search:function(){
@@ -41,9 +39,8 @@ var SearchPanel = {
           }
 
         }
-        ,ready: function() {
+        ,mounted: function() {
           this.set_date_range_picker();
-          
         }
         ,template: `<div class="row filters">
                       <div class="col-md-11">

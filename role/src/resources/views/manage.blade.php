@@ -15,13 +15,10 @@
 					<h2>Manage Access Roles <small>User Roles</small></h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li>
-						
 	 						<a href="#" class="btn btn-sm" data-toggle="modal" data-target="#saveRoleModal">
 								<i class="fa fa-plus" aria-hidden="true"></i> Add New Role
 							</a>
 						</li>
-						
-						
 					</ul>
 					<div class="clearfix"></div>
 				</div>
@@ -31,7 +28,7 @@
 						<thead>
 							<tr class="headings">
 								<th>
-									<!-- <input type="checkbox" class="tableflat"> -->
+									ID
 								</th>
 								<th>Role Title </th>
 								<th>Description </th>
@@ -43,20 +40,19 @@
 					
 						<tr class="even pointer"  v-for="role in roles">
 							<td width="20px" class="a-center ">
-								<!-- <input type="checkbox" value="@{{role.id}}" class="tableflat"> -->
-								<i class="fa fa-arrow-right"></i>
+								@{{ role.id }}
 							</td>
-							<td class=" "> @{{ role.display_name }} ( @{{ role.users.length }} ) </td>
+							<td class=" "> @{{ role.display_name }} <span v-if="role.users"> ( @{{ role.users.length }} )  </span> </td>
 							<td class=" ">@{{ role.description}}</td>
 							
 							<td width="20%" class="text-right last">
 								<a class="btn btn-info btn-sm" href="#" v-on:click="show_edit_model(role)"
-										data-toggle="tooltip" data-placement="left" title="Edit @{{ role.display_name }} Role"
+										data-toggle="tooltip" data-placement="left" v-bind:title="'Edit '+role.display_name"
 								>
 									<i class="fa fa-edit"></i>
 								</a>
-								<a class="btn btn-danger btn-sm" v-on:click="delete_role(role)" href="#"
-									data-toggle="tooltip" data-placement="left" title="Delete @{{ role.display_name }} Role"
+								<a class="btn btn-danger btn-sm hide" v-on:click="delete_role(role)" href="#"
+									data-toggle="tooltip" data-placement="left" :id="role.display_name" v-bind:title="'Delete '+role.display_name"
 								>
 									<i class="fa fa-remove"></i>
 								</a>
@@ -69,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-@include('jumperRole::save')
+	</div>
+	@include('jumperRole::save')
 </div>
 @stop

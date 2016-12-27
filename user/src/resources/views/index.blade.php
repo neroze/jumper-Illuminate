@@ -21,9 +21,6 @@
 					<table id="users" class="table table-striped responsive-utilities jambo_table">
 						<thead>
 							<tr class="headings">
-								<th>
-									<!-- <input type="checkbox" class="tableflat"> -->
-								</th>
 								<th>ID </th>
 								<th>Full Name </th>
 								<th>Email </th>
@@ -36,11 +33,8 @@
 					</thead>
 					<tbody>
 					
-						<tr class="even pointer"  v-for="user in users | byRole | filterByDate" >
-							<td width="20px" class="a-center "  >
-								<!-- <input type="checkbox" value="@{{role.id}}" class="tableflat"> -->
-								<i class="fa  fa-meh-o"></i>
-							</td>
+						<tr class="even pointer"  v-for="user in filter_by_date(users) " >
+						<!-- <tr class="even pointer"  v-for="user in users | byRole | filterByDate" > -->
 							<td class=" "> @{{ user.id }} </td>
 							<td class=" "> @{{ user.name }} </td>
 							<td class=" "> @{{ user.email }} </td>
@@ -54,33 +48,29 @@
 							
 							<td width="20%" class="text-right last" >
 								<a class="btn btn-success btn-sm" href="javascript:;" v-if="user.status" v-on:click="toggleStatus(user)"
-									data-toggle="tooltip" data-placement="left" title="Toogle @{{ user.name }}'s Status Active / Inactive"
+									data-toggle="tooltip" data-placement="left" :title="'Toogle '+user.name+'\'s Status Active / Inactive'"
 								>
 								   <i class="fa fa-circle"></i>
 								</a>
 								<a class="btn btn-grey btn-sm" href="javascript:;" v-else v-on:click="toggleStatus(user)"
-									data-toggle="tooltip" data-placement="left" title="Toogle @{{ user.name }}'s Status Active / Inactive"
+									data-toggle="tooltip" data-placement="left" :title="'Toogle '+user.name+'\'s Status Active / Inactive'"
 								>
 								    <i class="fa  fa-circle"> </i> 
 								</a>
 								<a class="btn btn-primary btn-sm" href="#" v-on:click="show_edit_model(user)"
-									data-toggle="tooltip" data-placement="left" title="Quick Edit @{{ user.name }} Details"
+									data-toggle="tooltip" data-placement="left" :title="'Quick Edit '+user.name+' Details'"
 								>
 									<i class="fa fa-edit"></i>
 								</a>
-								<a class="btn btn-info btn-sm" href="#" v-show="user|show_only_if_educator" v-on:click="edit_details(user)"
-									data-toggle="tooltip" data-placement="left" title="Edit Educator @{{ user.name }}'s Details"
-								>
-									<i class="fa fa-text-height"></i>
-								</a>
+								
 								@if(Auth::user()->hasRole('root_admin') || Auth::user()->hasRole('admin') || Auth::user()->hasRole('company') )
 									<a class="btn btn-danger btn-sm" v-on:click="delete_user(user)" href="#" 
-										data-toggle="tooltip" data-placement="left" title="Delete @{{ user.name }}"
+										data-toggle="tooltip" data-placement="left" :title="'Delete '+user.name"
 									>
 										<i class="fa fa-remove"></i>
 									</a>
-									<a class="btn btn-warning btn-sm" target="_blank" href="/admin/users/@{{user.id}}/impersonate"
-										data-toggle="tooltip" data-placement="left" title="Impersonate @{{ user.name }}'s Session"
+									<a class="btn btn-warning btn-sm" target="_blank" :href="'/admin/users/'+user.id+'/impersonate'"
+										data-toggle="tooltip" data-placement="left" :title="'Impersonate '+user.name+'\'s Session'"
 									>
 										<i class="fa  fa-male"></i> 
 									</a>

@@ -1,4 +1,4 @@
-@extends('layouts.dash')
+@extends('jumperCore::layouts.dash')
 @section('content')
 
 <div id="user-subscription">

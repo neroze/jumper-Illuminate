@@ -9,6 +9,7 @@ use Jumper\Core\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Jumper\Core\Helpers\Jumper;
 use Jumper\User\User;
+use Jumper\Role\Role;
 use Jumper\User\Subscription;
 use Illuminate\Support\Facades\Mail;
 use Jumper\Mail\ThankyouMessage;
@@ -219,5 +220,42 @@ class UserController extends Controller
             return JResponse::data('Profile Image Deleted.');
         }
         return JResponse::error('Error while deleting profile Image.');
+    }
+
+     /**
+     * Search user names
+     *
+     * @return Array
+     * @author 
+     **/
+    
+    public function search(Request $request,$role="supplier")
+    {
+        $search =  $request->all();
+        $search =  $search['query'];
+
+        $user = $request->user();
+       
+        $res['suggestions'] = [];
+        $users = Role::with(['users' => function($q) use ($search, $user) {
+                                if($user->hasRole('root_admin') || $user->hasRole('admin')){
+                                    $q->where('name', 'LIKE', '%'.$search.'%');
+                                }
+                            }])->first();
+        if($users ){
+
+           $educators = $users->users;
+
+            if(!empty($educators)){
+                foreach ($educators as $key => $educator) {
+                    $res['suggestions'][] = ['value'=>$educator->name,'data'=>$educator->id];
+                }
+            }
+            
+        }
+        
+
+        return $res;
+
     }
 }

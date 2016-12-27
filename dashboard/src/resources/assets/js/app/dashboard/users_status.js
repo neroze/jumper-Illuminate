@@ -3,9 +3,9 @@ var Chart = require('../jumper/chart.js');
 
 // register
 var userStatus =  J.Vue.component('users-status', {
-	props: ['graphData','name'],
+  props: ['graphData','name'],
   template:'<div class="col-md-12 chart-widget" id="echart_pie4"></div>',
-	ready:function() {
+  mounted:function() {
     var _data = this.parseData( $.parseJSON(this.graphData)  );
     Chart.barDiagram('echart_pie4', _data );
   },

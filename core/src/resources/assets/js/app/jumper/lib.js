@@ -1,19 +1,22 @@
-var Vue = require('Vue');
-// var J = require('../jumper/lib.js');
-var vueResource = require('vue-resource');
-    Vue.use(vueResource);
+import Vue from 'vue'
+import vueResource from 'vue-resource'
+Vue.use(vueResource);
+
 var _ = require('lodash');
 var Base = require('./Base.js');
 
 var Jumper = {};
 Jumper = Object.assign(Object.create(Base), Jumper);
 
+Jumper.lang = {}
+Jumper.lang.some_went_wrong = "Sorry something went wrong ... !"
+
 Jumper.log = function(_msg ){
-	console.log(_msg);
+  console.log(_msg);
 }
 
-Jumper.random_color_dump = function(){
-	return ('#'+Math.floor(Math.random()*16777215).toString(16));
+Jumper.random_color = function(){
+  return ('#'+Math.floor(Math.random()*16777215).toString(16));
 }
 
 Jumper.delete_file_from_server = function(_filename){

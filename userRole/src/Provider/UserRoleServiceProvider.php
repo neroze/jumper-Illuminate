@@ -21,7 +21,7 @@ class UserRoleServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/assets/js/app/user_role' => resource_path('assets/js/app/user_role_raw'),
 
-        ], 'js');
+        ], 'role_js');
     }
 
     /**

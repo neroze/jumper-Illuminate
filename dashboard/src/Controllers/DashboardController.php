@@ -16,6 +16,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+
         $total_paid_amt = 0;
         $user = $request->user();
         $users_status = User::getUsers($user);
@@ -36,6 +37,7 @@ class DashboardController extends Controller
                 $total_balance = 0;
             }
         }
+
         return view('jumperDash::index', compact('role', 'users_status', 'user', 'total_balance', 'total_paid_amt'));
     }
 

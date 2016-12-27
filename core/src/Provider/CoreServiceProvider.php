@@ -16,7 +16,7 @@ class CoreServiceProvider extends ServiceProvider
         // publishing views
          $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/jumperCore'),
-        ]);
+        ],'core_views');
 
         $this->publishes([
             __DIR__.'/../resources/assets/js/app/jumper' => resource_path('assets/js/app/jumper'),

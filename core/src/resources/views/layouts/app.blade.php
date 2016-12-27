@@ -97,6 +97,6 @@
     @yield('content')
 
     <!-- Scripts -->
-    @include('layouts.partials.script_mix')
+    @include('jumperCore::layouts.partials.script_mix')
 </body>
 </html>
