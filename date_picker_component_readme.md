@@ -26,7 +26,7 @@ new J.Vue({
 
 ````sh
  <date-picker name="training_expire_date" :init_data.sync="training.expire_date" ></date-picker>
- ````sh
+
 
  ## @params
  name :  name for the component
