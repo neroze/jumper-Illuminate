@@ -11,6 +11,7 @@
     @endif
                        
     <li><a href="/{{ env('APP_PREFIX')}}/manage-user"><i class="fa fa-user"></i> Manage All Users <span class="fa fa-chevron-down"></span></a>
+    <li><a href="/{{ env('APP_PREFIX')}}/subscriptions"><i class="fa fa-cc-stripe"></i> Subscriptions <span class="fa fa-chevron-down"></span></a>
     <!-- <li><a href="{{ url('/admin/manage-time-sheets') }}"><i class="fa  fa-building"></i> Manage Time Sheets </span></a></li> -->
    
   
