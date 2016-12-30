@@ -1,3 +1,5 @@
+# compatible with VueJS 1.0 and VueJS 2.0
+
 # Import search.js and search_panel.js
 <pre>
 	var Search = require('../search/search.js');
