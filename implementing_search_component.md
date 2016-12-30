@@ -49,8 +49,7 @@ new J.Vue({
     .
 	},
 	methods: User,
- 	filters: User.filers_actions(),
-  components:{
+    components:{
       'search-panel':SearchPanel
   }
 });
@@ -61,11 +60,11 @@ new J.Vue({
 	&#60;search-panel :set_search_param="setSearchParam" &#62;  &#60;/search-panel&#62;
 </pre>
 ## implementing search filter in looop 
-v-for="user in users | filterByDate"
+v-for="user in users | filter_by_date(users) "
 
 ## Example
 <pre>
 
-			&#60; tr class="even pointer"  v-for="user in users | filterByDate" &#62;
+			&#60; tr class="even pointer"  v-for="user in filter_by_date(users) " &#62;
 				
 </pre>
